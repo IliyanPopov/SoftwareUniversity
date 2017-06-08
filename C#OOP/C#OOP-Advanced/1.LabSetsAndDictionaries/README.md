@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 <h2>1. Students Results</h2>
 <p>Write a program that reads number <strong>N</strong> from the console. After that read <strong>N</strong> lines with students with their results in format <strong>{name} - {firstResult}, {secondResult}, {thirdResult}</strong></p>
 <p>Print <strong>table</strong> on console. Each row must contain:</p>
