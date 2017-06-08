@@ -1,8 +1,6 @@
-<h1>Exercises: Stacks and Queues</h1>
-<p>This document defines the <strong>exercise assignments</strong> for the <a href="https://softuni.bg/trainings/1633/csharp-advanced-may-2017">"CSharp Advanced" course @ Software University</a>. Please submit your solutions (source code) of all below described problems in <a href="https://judge.softuni.bg/Contests/184/Stacks-and-Queues">Judge</a>.</p>
-<ul>
-<li><strong>Reverse Numbers with a Stack</strong></li>
-</ul>
+<h1> Exercises: Stacks and Queues </h1>
+<p>This document defines the <strong>exercise assignments</strong> for the "CSharp Advanced" course @ Software University. Please submit your solutions (source code) of all below described problems in Judge.</p>
+<p><strong>1. Reverse Numbers with a Stack</strong></p>
 <p>Write a program that reads <strong>N integers</strong> from the console and <strong>reverses them using a stack</strong>. Use the <strong>Stack&lt;int&gt;</strong> class. Just put the input numbers in the stack and pop them. Examples:</p>
 <p><strong>Examples</strong></p>
 <table width="677">
@@ -33,9 +31,7 @@
 </tr>
 </tbody>
 </table>
-<ul>
-<li><strong>Basic Stack Operations</strong></li>
-</ul>
+<p><strong>2. Basic Stack Operations</strong></p>
 <p>Play around with a stack. You will be given an integer <strong>N </strong>representing the amount of elements to push onto the stack, an integer <strong>S </strong>representing the amount of elements to pop from the stack and finally an integer <strong>X</strong>, an element that you should check whether is present in the stack. If it is print <strong>true </strong>on the console, if it&rsquo;s not print the smallest element currently present in the stack.</p>
 <p><strong>Input Format: </strong>On the first line you will be given <strong>N</strong>, <strong>S</strong> and <strong>X </strong>separated by a single space. On the next line you will be given <strong>N</strong> amount of integers.</p>
 <p><strong>Output Format: </strong>On a single line print either <strong>true </strong>if <strong>X </strong>is present in the stack otherwise print <strong>smallest </strong>element in the stack. If the stack is empty print 0.</p>
@@ -73,12 +69,12 @@
 <td width="132">
 <p>13</p>
 </td>
+<td width="422">
+</td>
 </tr>
 </tbody>
 </table>
-<ul>
-<li><strong>Maximum Element</strong></li>
-</ul>
+<p><strong>3. Maximum Element</strong></p>
 <p>You have an empty sequence, and you will be given&nbsp;N&nbsp;queries. Each query is one of these three types:</p>
 <p>1 x - Push the element x into the stack.</p>
 <p>2 - Delete the element present at the top of the stack.</p>
@@ -117,9 +113,7 @@
 </tr>
 </tbody>
 </table>
-<ul>
-<li><strong>Basic Queue Operations</strong></li>
-</ul>
+<p><strong>4. Basic Queue Operations</strong></p>
 <p>Play around with a queue. You will be given an integer <strong>N </strong>representing the amount of elements to enqueue (add), an integer <strong>S </strong>representing the amount of elements to dequeue (remove/poll) from the queue and finally an integer <strong>X</strong>, an element that you should check whether is present in the queue. If it is print <strong>true </strong>on the console, if it&rsquo;s not print the smallest element currently present in the queue.</p>
 <p><strong>Examples</strong></p>
 <table width="688">
@@ -155,6 +149,8 @@
 <td width="142">
 <p>13</p>
 </td>
+<td width="406">
+</td>
 </tr>
 <tr>
 <td width="140">
@@ -164,12 +160,12 @@
 <td width="142">
 <p>0</p>
 </td>
+<td width="406">
+</td>
 </tr>
 </tbody>
 </table>
-<ul>
-<li><strong>Calculate Sequence with Queue</strong></li>
-</ul>
+<p><strong>5. Calculate Sequence with Queue</strong></p>
 <p>We are given the following sequence of numbers:</p>
 <ul>
 <li>S<sub>1</sub> = N</li>
@@ -219,9 +215,7 @@
 </tr>
 </tbody>
 </table>
-<ul>
-<li><strong>* Truck Tour</strong></li>
-</ul>
+<p><strong>6. * Truck Tour</strong></p>
 <p>Suppose there is a circle. There are&nbsp;<strong>N</strong>&nbsp;petrol pumps on that circle. Petrol pumps are numbered&nbsp;0&nbsp;to&nbsp;(N&minus;1)&nbsp;(both inclusive). You have <strong>two pieces of information</strong> corresponding to each of the petrol pump: (1) the <strong>amount of petrol</strong> that particular petrol pump will give, and (2) the <strong>distance from that petrol pump</strong> to the next petrol pump.</p>
 <p>Initially, you have a tank of infinite capacity carrying no petrol. You can start the tour at <strong>any</strong> of the petrol pumps. Calculate the <strong>first point</strong> from where the truck will be able to complete the circle. Consider that the truck will stop at <strong>each of the petrol pumps</strong>. The truck will move one kilometer for each liter of the petrol.</p>
 <p><strong>Input Format: </strong>The first line will contain the value of&nbsp;<strong>N</strong>.<br /> The next&nbsp;<strong>N</strong>&nbsp;lines will contain a pair of integers each, i.e. the amount of petrol that petrol pump will give and the distance between that petrol pump and the next petrol pump.</p>
@@ -251,9 +245,7 @@
 </tr>
 </tbody>
 </table>
-<ul>
-<li><strong>Balanced Parentheses</strong></li>
-</ul>
+<p><strong>7. Balanced Parentheses</strong></p>
 <p>Given a sequence consisting of parentheses, determine whether the expression is balanced. A sequence of parentheses is balanced if every open parenthesis can be paired uniquely with a closed parenthesis that occurs after the former. Also, the interval between them must be balanced. You will be given three types of parentheses:&nbsp;(,&nbsp;{, and&nbsp;[.</p>
 <p>{[()]} - This is a balanced parenthesis.</p>
 <p>{[(])} - This is not a balanced parenthesis.</p>
@@ -297,9 +289,7 @@
 </tr>
 </tbody>
 </table>
-<ul>
-<li><strong>Recursive Fibonacci</strong></li>
-</ul>
+<p><strong>8. Recursive Fibonacci</strong></p>
 <p>The Fibonacci sequence is quite a famous sequence of numbers. Each member of the sequence is calculated from the sum of the two previous elements. The <strong>first two </strong>elements are 1, 1. Therefore the sequence goes as 1, 1, 2, 3, 5, 8, 13, 21, 34&hellip; <br /> The following sequence can be generated with an array, but that&rsquo;s easy, so your task is to implement recursively.</p>
 <p>So if the function <strong>getFibonacci(n)</strong> returns the n&rsquo;th Fibonacci number we can express it using <strong>getFibonacci(n) = getFibonacci(n-1) + getFibonacci(n-2).</strong></p>
 <p>However, this will never end and in a few seconds a StackOverflow Exception is thrown. In order for the recursion to stop it has to have a &ldquo;<strong>bottom</strong>&rdquo;. The bottom of the recursion is <strong>getFibonacci(2)</strong> should return 1 and <strong>getFibonacci(1)</strong> should return 1.</p>
@@ -345,10 +335,8 @@
 </tbody>
 </table>
 <p>For the Nth Fibonacci number, we calculate the N-1th and the N-2th number, but for the calculation of N-1th number we calculate the N-1-1th(N-2th) and the N-1-2th number, so we have a lot of repeated calculations.</p>
-<p>If you want to figure out how to skip those unnecessary calculations, you can search for a technique called <a href="https://en.wikipedia.org/wiki/Memoization">memoization</a>.</p>
-<ul>
-<li><strong>Stack Fibonacci </strong></li>
-</ul>
+<p>If you want to figure out how to skip those unnecessary calculations, you can search for a technique called memoization.</p>
+<p><strong>9. Stack Fibonacci </strong></p>
 <p>There is another way of calculating the Fibonacci sequence <strong>using a stack</strong>. It is non recursive, so it does not make any unnecessary calculations. Try implementing it. This time set the Fibonacci sequence to start from 0, i.e. 0, 1, 1, 2, 3, 5, 8&hellip; and so on. First <strong>push</strong> 0 and 1 and then use <strong>popping,</strong> <strong>peeking</strong> and <strong>pushing</strong> to generate every consecutive number.</p>
 <p><strong>Examples</strong></p>
 <table width="677">
@@ -387,9 +375,7 @@
 </tr>
 </tbody>
 </table>
-<ul>
-<li><strong>*Simple Text Editor</strong></li>
-</ul>
+<p><strong>10. *Simple Text Editor</strong></p>
 <p>You are given an empty text. Your task is to implement 4 commands related to manipulating the text</p>
 <ul>
 <li>1 someString - <strong>appends</strong> someString to the end of the text</li>
@@ -440,9 +426,7 @@
 </table>
 <p><strong>Explanation</strong></p>
 <p>There are&nbsp;8&nbsp;operations. Initially,&nbsp;the text&nbsp;is empty.&nbsp;<br /> In the first operation, we append&nbsp;<strong>abc</strong> to&nbsp;the text.&nbsp;<br /> Then, we print its&nbsp;3rd&nbsp;character, which is&nbsp;<strong>c</strong>&nbsp;at this point.&nbsp;<br /> Next, we erase its last&nbsp;3&nbsp;characters,&nbsp;<strong>abc</strong>.&nbsp;<br /> After that, we append&nbsp;<strong>xy</strong> to the text.&nbsp;<br /> The text&nbsp;becomes&nbsp;<strong>xy</strong>&nbsp;after these previous two modifications.&nbsp;<br /> Then, we are asked to return the&nbsp;2nd&nbsp;character of&nbsp;the text, which is&nbsp;<strong>y</strong>.<br /> After that, we have to undo the last update to&nbsp;the text, so&nbsp;it&nbsp;becomes empty.<br /> The next operation asks us to undo the update before that, so&nbsp;the text&nbsp;becomes&nbsp;<strong>abc</strong>&nbsp;again.&nbsp;<br /> Finally, we are asked to print its&nbsp;1st&nbsp;character, which is&nbsp;<strong>a</strong>&nbsp;at this point.</p>
-<ul>
-<li><strong>**Poisonous Plants</strong></li>
-</ul>
+<p><strong>11. **Poisonous Plants</strong></p>
 <p>You are given&nbsp;<strong>N</strong>&nbsp;plants in a garden. Each of these plants has been added with some amount of pesticide. After each day, if any plant has <strong>more pesticide</strong> than the plant at <strong>its left</strong>, being weaker (more GMO) than the left one, <strong>it dies</strong>. You are given the initial values of the amount of pesticide and the position of each plant. Print the number of days <strong>after</strong> which no plant dies, i.e. the time after which there are no plants with more pesticide content than the plant to their left.</p>
 <p><strong>Input Format: </strong>The input consists of an integer&nbsp;<strong>N</strong> representing the number of plants. The next <strong>single line</strong> consists of&nbsp;<strong>N</strong>&nbsp;integers where every integer represents the position and the amount of pesticides of each plant.</p>
 <p><strong>Constraints</strong>: 1 &le; N &le; 100000<br /> Pesticides amount on a plant is between 0 and 1000000000</p>
@@ -469,6 +453,6 @@
 </tr>
 </tbody>
 </table>
+<p></p>
 <p><strong>Explanation</strong></p>
 <p>Initially all plants are alive.&nbsp;<br /> Plants = {(6,1), (5,2), (8,3), (4,4), (7,5), (10,6), (9,7)}&nbsp;<br /> Plants[k] = (i,j) =&gt; j<sup>th</sup>&nbsp;plant has pesticide amount = i.&nbsp;<br /> After the 1<sup>st</sup>&nbsp;day, 4 plants remain as plants 3, 5, and 6 die.&nbsp;<br /> Plants = {(6,1), (5,2), (4,4), (9,7)}&nbsp;<br /> After the 2<sup>nd</sup>&nbsp;day, 3 plants survive as plant 7 dies. Plants = {(6,1), (5,2), (4,4)}&nbsp;<br /> After the 3<sup>rd</sup>&nbsp;day, 3 plants survive and no more plants die.&nbsp;<br /> Plants = {(6,1), (5,2), (4,4)}&nbsp;<br /> After the 2<sup>nd</sup>&nbsp;day the plants stop dying.</p>
-<p>Check out <a href="https://ruwix.com/" rel="nofollow">ruwix.com</a> to learn the solution of the Rubik's Cube and other twisty puzzles like Pyraminx, Square-1 etc.</p>
