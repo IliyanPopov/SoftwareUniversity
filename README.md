@@ -15,3 +15,9 @@ My Homeworks and projects for Software University
 <li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/7.StreamsAndFilesExercise">StreamsAndFiles Homework</a></li>
 <li><a href="ManualStringProcessingLab">ManualStringProcessing Exercise</a></li>
 </ol>
+
+### Entity Framework
+<ol>
+<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/1.LabSetsAndDictionaries">Entity Framework Initialization & Quering</a></li>
+<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/2.SetsAndDictionariesExercises">Automapper Exercises</a></li>
+</ol>
