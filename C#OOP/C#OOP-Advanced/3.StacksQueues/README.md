@@ -266,4 +266,3 @@
 </tr>
 </tbody>
 </table>
-<p>Content composed with the free online HTML editor toolkit. Please subscribe for a membership to stop adding links to the edited documents.</p>

@@ -820,4 +820,3 @@
 </tr>
 </tbody>
 </table>
-<p>Article edited with the online wysiwyg HTML editor. Subscribe for a HTMLG membership to stop adding promotional messages to your documents.</p>

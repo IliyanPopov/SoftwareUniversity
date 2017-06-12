@@ -160,4 +160,3 @@
 <li><strong>3<sup>rd</sup> </strong>page should be an <strong>error page</strong> if the user tries to access any other page return as response the error page.</li>
 </ul>
 <p>You are provided with some HTML files of the needed pages to make it easier for you. But you are free to modify them and even use your own HTML files.</p>
-<h3>Examples</h3>

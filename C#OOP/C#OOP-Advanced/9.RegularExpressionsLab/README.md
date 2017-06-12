@@ -380,4 +380,3 @@
 </tr>
 </tbody>
 </table>
-<p>Never forget to <a href="https://html-cleaner.com/">clean your HTML code</a> and double check your content before publishing the articles!</p>

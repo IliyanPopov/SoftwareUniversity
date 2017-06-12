@@ -1487,4 +1487,3 @@
 </tr>
 </tbody>
 </table>
-<p>The free online JavaScript beutifier organizes your scripts. Use it every time before publishing codes.</p>

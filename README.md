@@ -14,6 +14,7 @@ My Homeworks and projects for Software University
 <li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/6.MatrixesExercises">Matrixes Homework</a></li>
 <li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/7.StreamsAndFilesExercise">StreamsAndFiles Homework</a></li>
 <li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/8.%20ManualStringProcessingLab">ManualStringProcessing Exercise</a></li>
+<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/9.RegularExpressionsLab">Regular Expressions Exercise</a></li>
 </ol>
 
 ### Entity Framework
