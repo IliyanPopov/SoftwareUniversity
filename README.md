@@ -6,9 +6,7 @@ My Homeworks and projects for Software University
 ## Programming with C# ##
 
 ### C# - BashSoft Project
-<ol>
-<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/BashSoftProject">BashSoft Project</a></li>
-<ol>
+<a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/BashSoftProject">BashSoft Project</a>
 
 ### C# - Advanced
 <ol>
