@@ -1,4 +1,9 @@
-<p>C# Advanced Tasks</p>
+# C# - BashSoft Project
+<ol>
+<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/BashSoftProject">BashSoft Project</a></li>
+<ol>
+
+# C# Advanced Tasks
 <ol>
 <li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/1.LabSetsAndDictionaries">SetsAndDictionaries Exercise</a></li>
 <li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/2.SetsAndDictionariesExercises">SetsAndDictionaries Homework</a></li>
