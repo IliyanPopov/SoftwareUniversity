@@ -15,6 +15,9 @@
                 case "open":
                     TryOpenFile(input, data);
                     break;
+                case "show":
+                    TryShowWantedData(input, data);
+                    break;
                 case "mkdir":
                     TryCreateDirectory(input, data);
                     break;
@@ -54,6 +57,25 @@
                 default:
                     DisplayInvalidCommandMessage(input);
                     break;
+            }
+        }
+
+        private static void TryShowWantedData(string input, string[] data)
+        {
+            if (data.Length == 2)
+            {
+                string courseName = data[1];
+                StudentsRepository.GetAllStudentFromCourse(courseName);
+            }
+            else if (data.Length == 3)
+            {
+                string courseName = data[1];
+                string userName = data[2];
+                StudentsRepository.GetStudentScoresFromCouse(courseName, userName);
+            }
+            else
+            {
+                DisplayInvalidCommandMessage(input);
             }
         }
 

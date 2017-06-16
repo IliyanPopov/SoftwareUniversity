@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.IO;
+    using System.Text.RegularExpressions;
 
     public static class StudentsRepository
     {
@@ -26,6 +27,8 @@
         private static void ReadData(string fileName)
         {
             string path = SessionData.CurrentPath + "\\" + fileName;
+            string pattern = @"([A-Z][a-zA-Z#+]*_[A-Z][a-z]{2}_\d{4})\s+([A-Z][a-z]{0,3}\d{2}_\d{2,4})\s+(\d+)";
+            Regex regex = new Regex(pattern);
 
             if (File.Exists(path))
             {
@@ -33,35 +36,34 @@
 
                 for (int line = 0; line < allInputLines.Length; line++)
                 {
-                    if (!string.IsNullOrEmpty(allInputLines[line]))
+                    if (!string.IsNullOrEmpty(allInputLines[line]) && regex.IsMatch(allInputLines[line]))
                     {
-                        string[] data = allInputLines[line].Split(' ');
-                        string course = data[0];
-                        string student = data[1];
-                        List<int> marksList = new List<int>();
+                        Match currenMatch = regex.Match(allInputLines[line]);
 
-                        for (int i = 2; i < data.Length; i++)
+                        string courseName = currenMatch.Groups[1].Value;
+                        string student = currenMatch.Groups[2].Value;
+                        int studentScoreOnTask;
+                        bool hasParsedScore = int.TryParse(currenMatch.Groups[3].Value, out studentScoreOnTask);
+
+                        if (hasParsedScore && studentScoreOnTask >= 0 && studentScoreOnTask <= 100)
                         {
-                            marksList.Add(int.Parse(data[i]));
-                        }
+                            // Add the course and student if they don't exist
+                            if (!studentsByCourse.ContainsKey(courseName))
+                            {
+                                studentsByCourse.Add(courseName, new Dictionary<string, List<int>>());
+                            }
 
-                        // Add the course and student if they don't exist
-                        if (!studentsByCourse.ContainsKey(course))
-                        {
-                            studentsByCourse.Add(course, new Dictionary<string, List<int>>());
+                            if (!studentsByCourse[courseName].ContainsKey(student))
+                            {
+                                studentsByCourse[courseName].Add(student, new List<int>());
+                            }
+                            // Add the marks
+                            studentsByCourse[courseName][student].Add(studentScoreOnTask);
                         }
-
-                        if (!studentsByCourse[course].ContainsKey(student))
-                        {
-                            studentsByCourse[course].Add(student, new List<int>());
-                        }
-                        // Add the marks
-                        studentsByCourse[course][student].AddRange(marksList);
-
-                        IsDataInitialized = true;
-                        OutputWriter.WriteMessageOnNewLine("Data read!");
                     }
                 }
+                IsDataInitialized = true;
+                OutputWriter.WriteMessageOnNewLine("Data read!");
             }
             else
             {
