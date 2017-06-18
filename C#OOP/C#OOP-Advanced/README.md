@@ -11,4 +11,7 @@
 <li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/9.ManualStringProcessingExercises">ManualStringProcessing Exercises</a></li>
 <li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/10.RegularExpressionsLab">Regular Expressions Lab</a></li>
 <li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/11.RegularExpressionsExercise">Regular Expressions Exercises</a></li>
+<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/11.RegularExpressionsExercise">Functional Programming Lab</a></li>
+<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/11.RegularExpressionsExercise">Functional Programming Exercises</a></li>
 </ol>
+
