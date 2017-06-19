@@ -28,5 +28,16 @@
         public const string UnableToGoHigherInPartitionHierarchy = "Unable to go any higher in the partition hierarchy";
 
         public const string UnableToParseNumber = "The number cannot be parsed";
+
+        public const string InvalidStudentsFilter = "The students filter is not valid!";
+
+        public const string InvalidComparisonQuery =
+            "The comparison query you want, does not exist in the context of the current program!";
+
+        public const string InvalidTakeQuantityParameter =
+            "The take command expected does not match the format wanted!";
+
+        public const string InvalidTakeCommand =
+            "The take command is not supported!";
     }
 }

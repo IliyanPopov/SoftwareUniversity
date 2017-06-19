@@ -47,6 +47,8 @@
     <Compile Include="InputReader.cs" />
     <Compile Include="IOManager.cs" />
     <Compile Include="OutputWriter.cs" />
+    <Compile Include="RepositoryFilters.cs" />
+    <Compile Include="RepositorySorters.cs" />
     <Compile Include="SessionData.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
