@@ -384,3 +384,30 @@
 <p>Now if youâ€&trade;ve done everything and the situation in the switch case in the <strong>InterpredCommand</strong> method is the following :</p>
 <p>Everything should be ok and we are <strong>ready</strong> <strong>to</strong> <strong>start</strong> <strong>reading</strong> <strong>from</strong> the <strong>input</strong>.</p>
 <p>Next thing to do is read the <strong>dataNew.txt</strong> from where youâ€&trade;ve saved it and <strong>apply</strong> one <strong>sorting</strong> and one <strong>filtering</strong>.</p>
+<h2>PART&nbsp;8</h2>
+
+<h2>Problem 1. Change Predicate Methods with Lambda Expressions</h2>
+<p>The first thing we are going to change though is not related to LINQ. All we want to change here is in the <strong>RepositoryFilters</strong> in the <strong>public FilterAndTake</strong>. In the previous piece we created 3 methods that filter the given data. However, we have the possibility to delete the 15 rows that these methods take in the code. In the first method, where the <strong>wantedFilter</strong> is excellent we can easily express it through a predicate using lambda. We have only one input parameter so our statement in the call of the <strong>private</strong> <strong>FilterAndTake</strong> should look something like this:</p>
+<p>Next up are the average and the poor filter, however they are pretty much the same as the one above. For this reason we are not going to discuss them any further and just change the calls of the filter methods with the appropriate lambda expression:</p>
+<p>Now we can easily delete the three methods from the repository filters class.</p>
+<h2>Problem 2. Use LINQ Average Instead of a Custom One</h2>
+<p>Another piece we can get rid of is the Average method and replace it with the operator that comes from the LINQ. In the <strong>private FilterAndTake</strong> we should change the <strong>averageMark&rsquo;s</strong> name to <strong>averageScore</strong> and its value equal to the output of the just mentioned above operator. Next thing we need to make is a new variable called <strong>percentageOfFullfillments</strong> equal to the average score devided by the maximal score on a task which is 100. Finally, we should make one last variable that is the actual mark and it is equal to the percentage of fulfillment multiplied by 4 and summed with 2 after that. Here is how the <strong>private</strong> <strong>FilterAndTake</strong> method should look:</p>
+<h2>Problem 3. Changing Structure in Repository Sorters</h2>
+<p>I guess you wouldn&rsquo;t be quite happy to hear that we&rsquo;ve done the sorting the hard way. But now we can appreciate LINQ&rsquo;s easiness and replace it with the easy and more readable way. This means that we can delete the <strong>private</strong> <strong>OrderAndTake</strong> method but just before that let&rsquo;s extract only one method that we can reuse for our functionality. The new method for printing the sorted students declaration&rsquo;s and implementation should look like this:</p>
+<p><br/> <br/> Now you can easily delete all the methods except the <strong>public OrderAndTake</strong> and the one we just extracted. So after the deletions of all occurrences, the class should look like this:</p>
+<p><br/> </p>
+<p>Whether the wanted filter is ascending or descending we want to call the <strong>PrintStudents</strong> method passing an already sorted dictionary.</p>
+<p>First we are going to implement the ascending comparison and then we&rsquo;ll need to only change one word and copy the rest of the sorting so that it works for descending as well.</p>
+<p>Since we have a method for ordering a collection from LINQ, we are going to use it out of the box.</p>
+<p><br/> <br/> What the function wants is the criteria which to use for sorting and in our case we&rsquo;ll pass to it the sum of the scores on the tasks.</p>
+<p><br/> <br/> Now we should take only the needed number of results:</p>
+<p>Finally, we should convert it to a dictionary since after ordering it&rsquo;s a collection of different type:</p>
+<p>As we said we will copy this piece and only change the <strong>OdrerBy</strong> with a <strong>OrderByDescending</strong>.</p>
+<p>Now you can test the functionality of the filters and sorters and see if they still work.</p>
+<h2>Problem 4. Creating folder structure</h2>
+<p>There are no more places where we can use LINQ so I suggest we use the current piece to put the structure of our project in order at least a little bit.</p>
+<p>Let&rsquo;s create 4 folders in the current project called <strong>IO</strong>, <strong>Judge</strong>, <strong>Repository</strong>, <strong>Static</strong> <strong>data</strong>. In the IO folder put all the following things:</p>
+<p>In the Judge folder as you can imagine, we&rsquo;ll put the Tester class:</p>
+<p>In the repositories folder we&rsquo;ll put everything related to the repository:</p>
+<p>And finally in the Static data we should put the ExceptionMessages and the SessionData.</p>
+<p>Well done! You have completed the tutorial for your BashSoft a.k.a DIY Judge. Though you may feel free to continue explore and experiment with adding new features.</p>
