@@ -23,8 +23,8 @@ My Homeworks and projects for Software University
 <li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/11.RegularExpressionsExercise">Regular Expressions Exercises</a></li>
 <li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/12.FunctionalProgrammingLab">Functional Programming Lab</a></li>
 <li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/13.FunctionalProgrammingExercises">Functional Programming Exercises</a></li>
-<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/13.FunctionalProgrammingExercises">LINQ Lab</a></li>
-<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/13.FunctionalProgrammingExercises">LINQ Exercises</a></li>
+<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/14.LINQLab">LINQ Lab</a></li>
+<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/15.LINQExercises">LINQ Exercises</a></li>
 </ol>
 
 ### Entity Framework
