@@ -25,10 +25,13 @@ My Homeworks and projects for Software University
 <li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/13.FunctionalProgrammingExercises">Functional Programming Exercises</a></li>
 <li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/14.LINQLab">LINQ Lab</a></li>
 <li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/15.LINQExercises">LINQ Exercises</a></li>
+<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/16.SolvingOldExam22August2016">Solving Old Exam 22 August 2016</a></li>
+<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/17.SolvingOldExam19June2016">Solving Old Exam 19 June 2016</a></li>
 </ol>
 
 ### Entity Framework
 <ol>
-<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/EntityFramework/BookShopSystem">Entity Framework Initialization & Quering</a></li>
+<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/EntityFramework/BookShopSystem">BookShop System Project & Entity Framework Initialization & Quering</a></li>
+<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/EntityFramework/PhotoShareSystem">PhotoShare System Project</a></li>
 <li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/EntityFramework/SoftUniAutomapperExercises">Automapper Exercises</a></li>
 </ol>

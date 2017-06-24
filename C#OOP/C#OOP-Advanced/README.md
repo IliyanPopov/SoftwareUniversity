@@ -15,4 +15,6 @@
 <li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/13.FunctionalProgrammingExercises">Functional Programming Exercises</a></li>
 <li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/14.LINQLab">LINQ Lab</a></li>
 <li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/15.LINQExercises">LINQ Exercises</a></li>
+<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/16.SolvingOldExam22August2016">Solving Old Exam 22 August 2016</a></li>
+<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/17.SolvingOldExam19June2016">Solving Old Exam 19 June 2016</a></li>
 </ol>
