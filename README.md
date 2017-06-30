@@ -10,8 +10,8 @@ My Homeworks and projects for Software University
 
 ### C# OOP Basics
 <ol>
-<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Basics/1.DefiningClassesLab">Defining Classes Lab</a></li>
-<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Basics/1.DefiningClassesExercises">Defining Classes Exercises</a></li>
+<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Basics/1DefiningClassesLab">Defining Classes Lab</a></li>
+<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Basics/2DefiningClassesExercises">Defining Classes Exercises</a></li>
 </ol>
 
 ### C# - Advanced
