@@ -39,5 +39,15 @@
 
         public const string InvalidTakeCommand =
             "The take command is not supported!";
+
+        public const string StudentAlreadyEnrolledInGivenCourse = "The {0} already exists in {1}.";
+        public const string NotEnrolledInCourse = "Student must be enrolled in a course before you set his mark.";
+
+        public const string InvalidNumberOfScores =
+            "The number of scores for the given course is greater than the possible.";
+
+        public const string InvalidScore = "The score must be in range {0} and {1}";
+
+        public const string NullOrEmptyValue = "The value of the variable CANNOT be null or empty!";
     }
 }

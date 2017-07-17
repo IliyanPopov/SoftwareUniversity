@@ -2,12 +2,12 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics;
     using System.IO;
+    using Exceptions;
 
-    public static class IOManager
+    public class IOManager
     {
-        public static void TraverseDirectory(int depth)
+        public void TraverseDirectory(int depth)
         {
             OutputWriter.WriteEmptyLine();
             int initialIdentation = SessionData.CurrentPath.Split('\\').Length;
@@ -46,7 +46,7 @@
             }
         }
 
-        public static void CreateDirectoryInCurrentFolder(string name)
+        public void CreateDirectoryInCurrentFolder(string name)
         {
             string path = Directory.GetCurrentDirectory() + "\\" + name;
             try
@@ -55,11 +55,11 @@
             }
             catch (ArgumentException)
             {
-                OutputWriter.DisplayException(ExceptionMessages.ForbiddenSymbolsContainedInName);
+                throw new InvalidFileNameException();
             }
         }
 
-        public static void ChangeCurrentDirectoryRelative(string relativePath)
+        public void ChangeCurrentDirectoryRelative(string relativePath)
         {
             if (relativePath == "..")
             {
@@ -72,7 +72,7 @@
                 }
                 catch (ArgumentException)
                 {
-                    OutputWriter.DisplayException(ExceptionMessages.UnableToGoHigherInPartitionHierarchy);
+                    throw new InvalidFileNameException();
                 }
             }
             else
@@ -83,14 +83,14 @@
             }
         }
 
-        public static void ChangeCurrentDirectoryAbsolute(string absolutePath)
+        public void ChangeCurrentDirectoryAbsolute(string absolutePath)
         {
             if (!Directory.Exists(absolutePath))
             {
-                OutputWriter.DisplayException(ExceptionMessages.InvalidPath);
+               throw new InvalidFileNameException();
             }
 
             SessionData.CurrentPath = absolutePath;
-        }   
+        }
     }
 }

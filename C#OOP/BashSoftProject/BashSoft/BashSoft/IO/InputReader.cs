@@ -4,8 +4,14 @@
 
     public class InputReader
     {
+        private CommandInterpreter interpreter;
+
+        public InputReader(CommandInterpreter interpreter)
+        {
+            this.interpreter = interpreter;
+        }
         private const string endCommand = "quit";
-        public static void StartReadingCommands()
+        public void StartReadingCommands()
         {
             OutputWriter.WriteMessage($"{SessionData.CurrentPath}> ");
             string input = Console.ReadLine();
@@ -13,7 +19,7 @@
 
             while (input != endCommand)
             {
-                CommandInterpreter.InterpredCommand(input);
+                this.interpreter.InterpredCommand(input);
                 OutputWriter.WriteMessage($"{SessionData.CurrentPath}> ");
                 input = Console.ReadLine();
                 input = input.Trim();

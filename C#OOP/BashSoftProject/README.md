@@ -411,3 +411,68 @@
 <p>In the repositories folder we&rsquo;ll put everything related to the repository:</p>
 <p>And finally in the Static data we should put the ExceptionMessages and the SessionData.</p>
 <p>Well done! You have completed the tutorial for your BashSoft a.k.a DIY Judge. Though you may feel free to continue explore and experiment with adding new features.</p>
+<h1>Introduction</h1>
+<p>After we replaced "<strong>Display exception</strong>" with <strong>throw new Exception </strong>everywhere in the <strong>Encapsulation</strong> lab, now it's time to make our own <strong>Exceptions</strong> and throw them instead of the ones we have by default. This way we can set the messages of these Exceptions in the body of the class.</p>
+<h1>Problem 1. Making Exceptions for the IOManager and Tester</h1>
+<p>Instead of catching an ArgumentException and re-throwing it, with the corresponding message in the <strong>CreateDirectoryInCurrentFolder</strong> method we can make our own.</p>
+<p>First create a folder "<strong>Exceptions"</strong> and a class in it called "<strong>InvalidFileNameException"</strong>:</p>
+<p>Make the class <strong>inherits the class</strong> <strong>Exception</strong> and create two constructors &ndash; the first one should be parameterless and the other one with only one string parameter:</p>
+<p>The first one should call the base class' constructor and pass it a default message. You can just use the message in the <strong>ExceptionMessages</strong> class. You can also move the constant field to this class so it is decoupled (independent from other classes).</p>
+<p>Leave the second constructor as it is. It can be used if we want to pass a different message when creating a new <strong>InvalidFileNameException.</strong></p>
+<p>Now replace the throwing of ArgumentException with our own more specific InvalidFileNameException<strong>.</strong></p>
+<p>As you can see there is no need to pass a message to the constructor because we know the default message we automatically set is just what we need.</p>
+<p>For the <strong>ChangeCurrentDirectoryRelative</strong> and <strong>ChangeCurrentDirectoryAbsolute</strong> methods - we can make one common exception - <strong>InvalidPathException</strong>. First delete the <strong>InvalidDestination </strong>constant from the <strong>ExceptionMessages</strong> class. You will see only one compile time error in the <strong>IOManager</strong>. We will fix it by creating a common exception.</p>
+<p>Now throw this new exception in the two methods mentioned above and <strong>everywhere else</strong> where we used to throw an Exception with the <strong>InvalidPath</strong> or <strong>InvalidDestination</strong> messages.</p>
+<h1>Problem 2. Making Exceptions for the Models package</h1>
+<p>Let&rsquo;s move to the <strong>Course</strong> class - here we can set up a more specific exception for the field <strong>name's setter. </strong>We can call it <strong>InvalidStringException</strong>. Now just repeat what we did in Problem 1 and put as default message the <strong>NullOrEmptyValue</strong>. We can use this exception for the <strong>Student</strong> class' <strong>name setter </strong>as well.</p>
+<p>Next we can make an exception for the <strong>EnrollStudent </strong>and <strong>EnrollInCourse </strong>respectively in the <strong>Course</strong> and <strong>Student</strong> classes. This will be a more complex exception because it will accept 2 parameters - <strong>entryName</strong> and <strong>structureName, </strong>thus we will call it <strong>DuplicateEntryInStructureException. </strong>For the message use the same <strong>StudentAlreadyEnrolledInGivenCourse, </strong>but rename the constant to <strong>DuplicateEntry</strong>:</p>
+<p>Now just throw the exception in both of the methods but be careful for the order of the parameters.</p>
+<p>The last method we need to make an exception for this package is the <strong>SetMarkOnCourse. </strong>Make a <strong>CourseNotFoundException</strong> following the same pattern and then throw it in the correct place.</p>
+<h1>Problem 3. Making Exceptions for the Repository package</h1>
+<p>In this package the exceptions are mostly okay but you can make some of your own if you want.</p>
+<h1>Lab: Polymorphism</h1>
+<h1>Introduction</h1>
+<p>After learning about <strong>Inheritance </strong>and <strong>Polymorphism</strong> the time has come to do some more substantial refactoring to our project. In this lab we will employ a <strong>design pattern </strong>called "<a href="https://en.wikipedia.org/wiki/Command_pattern"><strong>Command pattern</strong></a>". As you can probably guess from the name it is mainly related to the <strong>CommandInterpreter</strong> and how it parses commands from user input. Our goal in the end is to provide a source code which is a lot more extensible and readable than at the moment. The whole idea of the <strong>Command pattern </strong>is to replace simple method calls in the <strong>ParseCommand</strong> method with creation of different <strong>Command </strong>objects. This will make the <strong>CommandInterpreter</strong> <strong>much less bulky</strong> as every command will be in a different class. Currently the <strong>CommandInterpreter</strong> is around 300 lines of code and is on the big side for our small project. In order to do this we need to solve several problems:</p>
+<h1>Problem 1. Making an abstract class called Command</h1>
+<p>Start by making a <strong>sub-folder</strong> in the <strong>IO </strong>namespace called <strong>Commands. </strong>This is the place where we will store our first class <strong>Command, </strong>which we will define <strong>abstract.</strong></p>
+<p>It will have <strong>two fields</strong> corresponding to the parameters we used to pass to each command so far &ndash; <strong>input</strong> and <strong>data</strong>:</p>
+<p>And another <strong>three fields</strong> that will represent all the utility classes we have:</p>
+<p>As you can see all command methods have these exact two parameters so make such fields.</p>
+<p>Now <strong>encapsulate</strong> the fields trough getters and setters. Think about the appropriate access modifiers - weather the <strong>getters</strong> will be used in the rest of Command classes which will <strong>extend</strong> our <strong>abstract</strong> Command and <strong>setters </strong>that will only be used in the current class.</p>
+<p>As for the <strong>InvalidCommandException &ndash; </strong>create one to replace the purpose of the <strong>DisplayInvalidCommandMessage</strong> method. It should extend the class <strong>Exception </strong>once again:</p>
+<p>Also provide <strong>getters </strong>for the utility classes. They should be useable <strong>only by classes that extend our abstract </strong>class:</p>
+<p>Don't forget to make a constructor that will set all the fields. Use the setters of the fields where possible:</p>
+<p>As you can see the constructor is quite big and it receives utility objects that not every command really needs. Still we are leave it like this because we need all the commands to have the same parameters in their constructors. You will find out why that is so in the <strong>Reflection</strong> <strong>lab</strong> in the <strong>next course</strong>, so stay tuned with <strong>BashSoft!</strong></p>
+<p>The final thing we will have in our abstract class is an abstract method called <strong>Execute </strong>it will be abstract because we want to force classes that inherit this one to <strong>override</strong> it. It will also throw and <strong>Exception</strong>.</p>
+<h1>Problem 2. Making the OpenFileCommand class</h1>
+<p>Create a class with the name above in the same package as our <strong>Command</strong> class. Add a constructor corresponding to the base class:</p>
+<p>Then <strong>override</strong> the abstract method from the base class. Inside copy the code from the <strong>TryOpenFile</strong> method with a few small changes: throw a new <strong>InvalidInputException</strong> instead of using the <strong>DisplayInvalidCommandMessage</strong> method; replace data with its corresponding field getter.</p>
+<h1>Problem 3. Accommodate the CommandInterpreter to work with our new commands.</h1>
+<p>Now that we have the <strong>OpenFileCommand</strong> class we can make the <strong>CommandInterpreter</strong> use it instead of the corresponding method.</p>
+<p>Let's start in the <strong>InterpretCommand</strong> method. First - rename the String <strong>command </strong>to <strong>commandName, </strong>we will need that name for the <strong>Command</strong> object.</p>
+<p>Now change the return type of the <strong>ParseCommand</strong> method to <strong>Command. </strong>In the <strong>switch-case block</strong> instead of calling methods in every case <strong>return</strong> new <strong>Commands</strong> of the corresponding type:</p>
+<p>You will later create classes for all the other commands. The <strong>default case</strong> throws a new <strong>InvalidCommandException</strong>:</p>
+<p>&nbsp;The command classes' names are the following:</p>
+<ul>
+<li>&ldquo;open&rdquo; -&gt; OpenFileCommand</li>
+<li>&ldquo;mkdir&rdquo; -&gt; MakeDirectoryCommand</li>
+<li>&ldquo;ls&rdquo; -&gt; TraverseFoldersCommand</li>
+<li>&ldquo;cmp&rdquo; -&gt; CompareFilesCommand</li>
+<li>&ldquo;cdrel&rdquo; -&gt; ChangeRelativePathCommand</li>
+<li>&ldquo;cdabs&rdquo; -&gt; ChangeAbsolutePathCommand</li>
+<li>&ldquo;readdb&rdquo; -&gt; ReadDatabaseCommand</li>
+<li>&ldquo;help&rdquo; -&gt; GetHelpCommand</li>
+<li>&ldquo;show&rdquo; -&gt; ShowCourseCommand</li>
+<li>&ldquo;filter&rdquo; -&gt; PrintFilteredStudentsCommand</li>
+<li>&ldquo;order&rdquo; -&gt; PrintOrderedStudentsCommand</li>
+<li>&ldquo;dropdb&rdquo; -&gt; DropDatabaseCommand</li>
+</ul>
+<p>Finally in the try block of the InterpedCommand method creat a Command object and set it to <strong>ParseCommand, </strong>then call the <strong>command.Execute</strong>() method. We can also collapse all our catch blocks to a single catch of type <strong>Exception</strong>. In this way we are sure that everything will be caught and we will still print the right message thus we reduce code clutter. Here is the final look of the <strong>interpretCommand</strong> method:</p>
+<h1>Problem 4. Creating the MakeDirectoryCommand</h1>
+<p>Following the same pattern as with creating the <strong>OpenFileCommand</strong> make a constructor matching the base one.</p>
+<p>When copying the code from <strong>TryCreateDirectory </strong>to the <strong>Execute</strong> method don't forget to change the usage of the <strong>inputOutputManager</strong> field with the corresponding <strong>getter:</strong></p>
+<h1>Problem 5. Creating the GetHelpCommand</h1>
+<p>In order to <strong>encapsulate</strong> the <strong>main logic</strong> behind some commands as this one, we use <strong>private helper methods</strong>. Just copy the whole <strong>DisplayHelp()</strong> <strong>method</strong> alongside the code you move from the <strong>TryGetHelp</strong> method. Here is how it looks in the <strong>GetHelpCommand,</strong> you must do the others by yourself:</p>
+<p>The other Commands that have such helper methods are: <strong>PrintFilteredStudentsCommand</strong> and <strong>PrintOrderedStudentsCommand.</strong></p>
+<h1>Problem 6. Finish all the other Command classes by yourself</h1>
+<p>We went through the basic logic behind the transition from a <strong>Try&lt;DoSomething&gt; </strong>method to a <strong>&lt;DoSomthing&gt;Command</strong> class. Now it is your turn - finish refactoring the other commands. Once you are done you can delete (or comment if you prefer) all the methods in the <strong>CommandInterpreter </strong>except <strong>InterpretCommand</strong> and P<strong>arseCommand.</strong></p>
