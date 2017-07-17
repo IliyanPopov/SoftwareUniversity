@@ -1,26 +1,25 @@
-﻿class AirMonument : Monument
+﻿public class AirMonument : Monument
 {
+    private int airAffinity;
+
     public AirMonument(string name, int airAffinity) : base(name)
     {
         this.AirAffinity = airAffinity;
     }
 
-    private int airAffinity;
-
     public int AirAffinity
     {
         get { return this.airAffinity; }
-        set { this.airAffinity = value; }
+        private set { this.airAffinity = value; }
     }
 
-    public override int GetAffinity()
+    public override int GetAffinityPoints()
     {
         return this.AirAffinity;
     }
 
     public override string ToString()
     {
-        return $"{base.ToString()}, Air Affinity: {this.AirAffinity}";
+        return $"Air Monument: {this.Name}, Air Affinity: {this.AirAffinity}";
     }
 }
-

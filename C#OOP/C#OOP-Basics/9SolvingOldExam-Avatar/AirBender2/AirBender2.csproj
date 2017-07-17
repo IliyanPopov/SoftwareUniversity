@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{61843B62-A422-4F34-92D7-70F94B49F33E}</ProjectGuid>
+    <ProjectGuid>{81649326-0A0B-48A2-A31D-9E861DBDCB1B}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>AvatarExamPrerp</RootNamespace>
-    <AssemblyName>AvatarExamPrerp</AssemblyName>
+    <RootNamespace>AirBender2</RootNamespace>
+    <AssemblyName>AirBender2</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -44,15 +44,17 @@
   <ItemGroup>
     <Compile Include="Core\Engine.cs" />
     <Compile Include="Core\NationsBuilder.cs" />
-    <Compile Include="Models\AbstractClasses\Bender.cs" />
-    <Compile Include="Models\AbstractClasses\Monument.cs" />
     <Compile Include="Models\Benders\AirBender.cs" />
+    <Compile Include="Models\Benders\Bender.cs" />
     <Compile Include="Models\Benders\EarthBender.cs" />
     <Compile Include="Models\Benders\FireBender.cs" />
     <Compile Include="Models\Benders\WaterBender.cs" />
+    <Compile Include="Models\Factories\BenderFactory.cs" />
+    <Compile Include="Models\Factories\MonumentFactory.cs" />
     <Compile Include="Models\Monuments\AirMonument.cs" />
     <Compile Include="Models\Monuments\EarthMonument.cs" />
     <Compile Include="Models\Monuments\FireMonument.cs" />
+    <Compile Include="Models\Monuments\Monument.cs" />
     <Compile Include="Models\Monuments\WaterMonument.cs" />
     <Compile Include="Models\Nation.cs" />
     <Compile Include="StartUp.cs" />
@@ -60,6 +62,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

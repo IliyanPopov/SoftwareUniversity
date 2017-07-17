@@ -10,16 +10,16 @@
     public int WaterAffinity
     {
         get { return this.waterAffinity; }
-        set { this.waterAffinity = value; }
+        private set { this.waterAffinity = value; }
     }
 
-    public override int GetAffinity()
+    public override int GetAffinityPoints()
     {
         return this.WaterAffinity;
     }
 
     public override string ToString()
     {
-        return $"{base.ToString()}, Water Affinity: {this.WaterAffinity}";
+        return $"Water Monument: {this.Name}, Water Affinity: {this.WaterAffinity}";
     }
 }

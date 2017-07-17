@@ -1,4 +1,4 @@
-﻿internal class FireMonument : Monument
+﻿public class FireMonument : Monument
 {
     private int fireAffinity;
 
@@ -10,16 +10,15 @@
     public int FireAffinity
     {
         get { return this.fireAffinity; }
-        set { this.fireAffinity = value; }
+        private set { this.fireAffinity = value; }
     }
-
-    public override int GetAffinity()
+    public override int GetAffinityPoints()
     {
         return this.FireAffinity;
     }
 
     public override string ToString()
     {
-        return $"{base.ToString()}, Fire Affinity: {this.FireAffinity}";
+        return $"Fire Monument: {this.Name}, Fire Affinity: {this.FireAffinity}";
     }
 }
