@@ -13,6 +13,7 @@
 <li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Basics/8PolymorphismExercises">Polymorphism Exercises</a></li>
 <li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Basics/9SolvingOldExam-Avatar">Solving Old Exam - Avatar</a></li>
 <li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Basics/10SolvingOldExam-NeedForSpeed">Solving Old Exam - Need For Speed</a></li>
+<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Basics/11RealExam-MinedCraft-Refactored">Real exam - my refactored solution</a></li>
 </ol>
 
 # C# Advanced Tasks

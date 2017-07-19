@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E63FD4F0-358A-4332-AA24-CA2A55A91F21}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>OOPExamMinedCraft</RootNamespace>
+    <AssemblyName>OOPExamMinedCraft</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\CheckCommand.cs" />
+    <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\DayCommand.cs" />
+    <Compile Include="Commands\ModeCommand.cs" />
+    <Compile Include="Commands\RegisterHarvesterCommand.cs" />
+    <Compile Include="Commands\RegisterProviderCommand.cs" />
+    <Compile Include="Commands\ShutdownCommand.cs" />
+    <Compile Include="Core\CommandInterpreter.cs" />
+    <Compile Include="Core\Engine.cs" />
+    <Compile Include="StartUp.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Minedcraft.Data\Minedcraft.Data.csproj">
+      <Project>{6398746a-1a18-4c8d-a27f-96d74cfc7a2b}</Project>
+      <Name>Minedcraft.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OOPExamMinedCraft.Common\OOPExamMinedCraft.Common.csproj">
+      <Project>{875e4783-5faf-4d0f-945e-6f3a685c9f10}</Project>
+      <Name>OOPExamMinedCraft.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OOPExamMinedCraft.Models\OOPExamMinedCraft.Models.csproj">
+      <Project>{0f5311cf-27c6-4333-82ea-49e73b03b32b}</Project>
+      <Name>OOPExamMinedCraft.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOPExamMinedCraft.Client", "OOPExamMinedCraft\OOPExamMinedCraft.Client.csproj", "{E63FD4F0-358A-4332-AA24-CA2A55A91F21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOPExamMinedCraft.Common", "OOPExamMinedCraft.Common\OOPExamMinedCraft.Common.csproj", "{875E4783-5FAF-4D0F-945E-6F3A685C9F10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOPExamMinedCraft.Models", "OOPExamMinedCraft.Models\OOPExamMinedCraft.Models.csproj", "{0F5311CF-27C6-4333-82EA-49E73B03B32B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minedcraft.Data", "Minedcraft.Data\Minedcraft.Data.csproj", "{6398746A-1A18-4C8D-A27F-96D74CFC7A2B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E63FD4F0-358A-4332-AA24-CA2A55A91F21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E63FD4F0-358A-4332-AA24-CA2A55A91F21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E63FD4F0-358A-4332-AA24-CA2A55A91F21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E63FD4F0-358A-4332-AA24-CA2A55A91F21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{875E4783-5FAF-4D0F-945E-6F3A685C9F10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{875E4783-5FAF-4D0F-945E-6F3A685C9F10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{875E4783-5FAF-4D0F-945E-6F3A685C9F10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{875E4783-5FAF-4D0F-945E-6F3A685C9F10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F5311CF-27C6-4333-82EA-49E73B03B32B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F5311CF-27C6-4333-82EA-49E73B03B32B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F5311CF-27C6-4333-82EA-49E73B03B32B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F5311CF-27C6-4333-82EA-49E73B03B32B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6398746A-1A18-4C8D-A27F-96D74CFC7A2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6398746A-1A18-4C8D-A27F-96D74CFC7A2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6398746A-1A18-4C8D-A27F-96D74CFC7A2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6398746A-1A18-4C8D-A27F-96D74CFC7A2B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
