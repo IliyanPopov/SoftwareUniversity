@@ -2,11 +2,14 @@
 {
     using System.Collections.Generic;
     using System.Diagnostics;
+    using Contracts;
+    using Contracts.Judge;
+    using Contracts.Repository;
     using Exceptions;
 
-    public class OpenFIleCommand : Command
+    public class OpenFIleCommand : Command, IExecutable
     {
-        public OpenFIleCommand(string input, List<string> data, Tester judge, StudentsRepository repository, IOManager inputOutputManager) : base(input, data, judge, repository, inputOutputManager)
+        public OpenFIleCommand(string input, List<string> data, IContentComparer judge, IDatabase repository, IDirecoryManager inputOutputManager) : base(input, data, judge, repository, inputOutputManager)
         {
         }
 

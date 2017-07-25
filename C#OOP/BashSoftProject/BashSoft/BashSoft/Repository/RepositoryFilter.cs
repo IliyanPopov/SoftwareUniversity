@@ -2,10 +2,10 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Reflection;
+    using Contracts.Repository;
 
-    public class RepositoryFilter
+    public class RepositoryFilter : IDataFilter
     {
         public void FilterAndTake(Dictionary<string, double> studentsWithMarks, string wantedFilter,
             int studentsToTake)
@@ -14,15 +14,15 @@
 
             if (wantedFilter == "excellent")
             {
-                this.FilterAndTake(studentsWithMarks, x => x >= 5, studentsToTake);
+                FilterAndTake(studentsWithMarks, x => x >= 5, studentsToTake);
             }
             else if (wantedFilter == "average")
             {
-                this.FilterAndTake(studentsWithMarks, x => 3.5 <= x && x < 5, studentsToTake);
+                FilterAndTake(studentsWithMarks, x => 3.5 <= x && x < 5, studentsToTake);
             }
             else if (wantedFilter == "poor")
             {
-                this.FilterAndTake(studentsWithMarks, x => x < 3.5, studentsToTake);
+                FilterAndTake(studentsWithMarks, x => x < 3.5, studentsToTake);
             }
             else
             {

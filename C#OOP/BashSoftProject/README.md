@@ -476,3 +476,69 @@
 <p>The other Commands that have such helper methods are: <strong>PrintFilteredStudentsCommand</strong> and <strong>PrintOrderedStudentsCommand.</strong></p>
 <h1>Problem 6. Finish all the other Command classes by yourself</h1>
 <p>We went through the basic logic behind the transition from a <strong>Try&lt;DoSomething&gt; </strong>method to a <strong>&lt;DoSomthing&gt;Command</strong> class. Now it is your turn - finish refactoring the other commands. Once you are done you can delete (or comment if you prefer) all the methods in the <strong>CommandInterpreter </strong>except <strong>InterpretCommand</strong> and P<strong>arseCommand.</strong></p>
+<h1>Lab: Interfaces and Abstraction</h1>
+<h1>Introduction</h1>
+<p>So far we've learned a lot about <strong>classes</strong>, their <strong>members</strong> and the first three principles of OOP - <strong>Encapsulation</strong>, <strong>Inheritance</strong> and <strong>Polymophism</strong>. We've employed all of that and even more in refactoring our <strong>BashSoft </strong>application. Now it is time to go one step further and employ the fourth OOP principle in our code - namely <strong>Abstraction</strong>. We will do this by creating several <strong>interfaces</strong> that will correspond to the classes we have. We will also try to <strong>segregate</strong> them somewhat into more than one <strong>interface</strong> per class at the times we notice a possibility.</p>
+<h1>Problem 1. Creating Interfaces for the IO package</h1>
+<p>As you've learned during the lecture the purpose of an <strong>interface</strong> is to define what methods a certain class needs to have in order to be sufficient for a certain task. Thus all methods in an interface are considered public and abstract.</p>
+<p>Let's start with creating our first <strong>interface</strong> that will define what a command should have. Create a new package called "<strong>Contracts" </strong>and inside of it - an <strong>interface</strong> called "<strong>IExecutable</strong>". Then define the proper method signature for the execute method our commands have:</p>
+<p>Now implement the method in our abstract <strong>Command</strong> class:</p>
+<p>If you have defined the <strong>interface</strong> correctly there shouldn't be any issues. You could also implement the interface in the derived commands. Although this would be redundant, the code will be considered more readable. Finally replace the abstract <strong>Command</strong> in every <strong>field</strong>, <strong>method</strong> or <strong>constructor</strong> <strong>return type / parameter</strong>. In this way we will raise the <strong>abstraction</strong> level of our application:</p>
+<p>Our next <strong>Interface</strong> will be for the <strong>CommandInterpreter</strong>. You can call it "<strong>IInterpreter</strong>" and define in it the public method of our class:</p>
+<p>Don't forget to <strong>implement</strong> the <strong>interface</strong> in the <strong>CommandInterpreter </strong>and raise the abstraction level in <strong>fields</strong>, <strong>methods</strong>, <strong>constructors</strong> and <strong>return types / parameters</strong>.</p>
+<p>In the <strong>InputReader:</strong></p>
+<p>In the <strong>main</strong> method:</p>
+<p>Next up is the <strong>IOManager - </strong>it is a good place to employ some <strong>interface segregation. </strong>First create an <strong>interface</strong> called <strong>IDirectoryTraverser</strong> - it will hold the <strong>TraverseDirectory</strong> method:</p>
+<p>Create an <strong>interface</strong> called <strong>IDirectoryCreator </strong>for the <strong>CreateDirectoryInCurrentFolder</strong> method:</p>
+<p>Finally, create an <strong>interface</strong> called <strong>IDirectoryChanger </strong>for the remaining two methods:</p>
+<p>Creating these three <strong>interfaces</strong> would allow us to oblige different classes to implement <strong>only</strong> the interfaces that are <strong>related</strong> to their actions. However, in the case of our <strong>IOManager</strong> we will need all three of them, so we will combine the three interfaces in a single one:</p>
+<p>Implement it like this:</p>
+<p>Finally replace <strong>IOManager</strong> with I<strong>DirectoryManager</strong> in all <strong>fields</strong>, <strong>methods</strong> or <strong>constructor</strong> <strong>return types / parameters </strong>in the <strong>CommandInterpreter</strong> and all the <strong>Command</strong> classes:</p>
+<p>Finish the rest of the command classes yourself. (<em>Hint</em> <em>-&gt;</em> use the VS search tool)</p>
+<p>Make an interface for the <strong>InputReader</strong> by yourself. You can call it <strong>IReader</strong> with method <strong>StartReadingCommands. </strong>Don't forget to implement it and replace <strong>InputReader</strong> with its interface where possible&hellip; (psst - the main method).</p>
+<p>We will not make an interface for our <strong>OutputWriter</strong> because it is not meant to be an instance class - it only has static methods and those don't belong to interfaces.</p>
+<h1>Problem 2. Creating Interfaces for the Models package</h1>
+<p>Let's begin by changing the name of both the classes to <strong>SoftUniStudent</strong> and <strong>SoftUniCourse</strong>.</p>
+<p>We are doing this because we need the distinguish them from the more <strong>abstract</strong> names for the <strong>underlying interfaces</strong> we are about to create. Now let's do just that - create interfaces called <strong>ICourse </strong>and<strong> IStudent</strong><strong>. </strong>They will have all the public methods of our <strong>SoftUni </strong>classes. This is how the <strong>ICourse</strong> interface should look like (notice how we use the <strong>IStudent</strong> interface instead of the <strong>SoftUniStudent</strong> class in the method signatures):</p>
+<p>And the <strong>SoftUniCourse</strong> class should now look like this:</p>
+<p>Do the <strong>IStudent</strong> interface and <strong>SoftUniStudent</strong> classes by yourself, following the pattern:</p>
+<ul>
+<li>Put all <strong>public</strong> method signatures of the <strong>class</strong> in the <strong>interface</strong>.</li>
+<li>Implement the interface in the class</li>
+<li>Where needed change <strong>Course</strong> with <strong>ICourse</strong></li>
+<li>Where needed change <strong>Student</strong> with <strong>IStudent</strong></li>
+<li>Fix the <strong>StudentRepository</strong> to work through both the <strong>IStudent</strong> and <strong>ICourse</strong> <strong>interfaces - </strong>you can start off with the fields:</li>
+</ul>
+<p>It is a good idea to make sure that the code compiles before proceeding to the final task.</p>
+<h1>Problem 3. Creating the remaining Interfaces</h1>
+<p>Create the following interfaces by yourself:</p>
+<ul>
+<li>For the <strong>Tester</strong> class
+<ul>
+<li><strong>IContentComparer</strong> with method <strong>CompareContent</strong></li>
+</ul>
+</li>
+<li>For the <strong>StudentsRepository</strong>
+<ul>
+<li><strong>IDatabase </strong>with methods: <strong>LoadData, UnloadData </strong>and extending sub-interfaces:
+<ul>
+<li><strong>IRequester </strong>with methods:<strong> GetStudentMarkInCourse, GetStudentsByCourse</strong></li>
+<li><strong>IFilteredTaker </strong>with methods: <strong>FilterAndTake</strong></li>
+<li><strong>IOrderedTaker </strong>with methods: <strong>OrderAndTake</strong></li>
+</ul>
+</li>
+<li>For the <strong>RepositorySorter</strong>
+<ul>
+<li><strong>IDataSorter </strong>with methods: <strong>OrderAndTake</strong></li>
+</ul>
+</li>
+<li>For the <strong>RepositoryFilter</strong>
+<ul>
+<li><strong>IDataFilter </strong>with methods: <strong>FilterAndTake</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Once you are done your main method should look something like this:</p>
+<p>If the application still compiles at the end - congratulations you have completed the lab for <strong>Interfaces</strong> <strong>and Abstraction</strong>!</p>

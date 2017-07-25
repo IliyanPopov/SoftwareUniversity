@@ -1,10 +1,13 @@
 ﻿namespace BashSoft.IO.Commands
 {
     using System.Collections.Generic;
+    using Contracts;
+    using Contracts.Judge;
+    using Contracts.Repository;
 
-    public class CompareFilesCommand : Command
+    public class CompareFilesCommand : Command, IExecutable
     {
-        public CompareFilesCommand(string input, List<string> data, Tester judge, StudentsRepository repository, IOManager inputOutputManager) : base(input, data, judge, repository, inputOutputManager)
+        public CompareFilesCommand(string input, List<string> data, IContentComparer judge, IDatabase repository, IDirecoryManager inputOutputManager) : base(input, data, judge, repository, inputOutputManager)
         {
         }
 

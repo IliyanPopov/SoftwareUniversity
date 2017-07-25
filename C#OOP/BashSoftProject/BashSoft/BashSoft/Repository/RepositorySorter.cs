@@ -4,8 +4,9 @@
     using System.Linq;
     using System.Reflection;
     using BashSoft.Models;
+    using Contracts.Repository;
 
-    public class RepositorySorter
+    public class RepositorySorter : IDataSorter
     {
         public void OrderAndTake(Dictionary<string, double> studentsWithMarks, string comparison, int studentsToTake)
         {
@@ -13,9 +14,9 @@
 
             if (comparison == "ascending")
             {
-               this.PrintStudents(studentsWithMarks.OrderBy(x => x.Value)
-                    .Take(studentsToTake)
-                    .ToDictionary(pair => pair.Key, pair => pair.Value));
+                this.PrintStudents(studentsWithMarks.OrderBy(x => x.Value)
+                     .Take(studentsToTake)
+                     .ToDictionary(pair => pair.Key, pair => pair.Value));
             }
             else if (comparison == "descending")
             {

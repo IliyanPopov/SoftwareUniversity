@@ -1,10 +1,13 @@
 ﻿namespace BashSoft.IO.Commands
 {
     using System.Collections.Generic;
+    using Contracts;
+    using Contracts.Judge;
+    using Contracts.Repository;
 
-    public class DropDatabaseCommand : Command
+    public class DropDatabaseCommand : Command, IExecutable
     {
-        public DropDatabaseCommand(string input, List<string> data, Tester judge, StudentsRepository repository, IOManager inputOutputManager) : base(input, data, judge, repository, inputOutputManager)
+        public DropDatabaseCommand(string input, List<string> data, IContentComparer judge, IDatabase repository, IDirecoryManager inputOutputManager) : base(input, data, judge, repository, inputOutputManager)
         {
         }
 

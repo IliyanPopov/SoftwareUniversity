@@ -5,20 +5,21 @@
     using System.IO;
     using System.Linq;
     using System.Text.RegularExpressions;
-    using BashSoft.Models;
+    using Contracts;
+    using Contracts.Repository;
+    using Models;
 
-    public class StudentsRepository
+    public class StudentsRepository : IDatabase
     {
-        private RepositoryFilter filter;
-        private bool isDataInitialized = false;
-        private RepositorySorter sorter;
-
-        private Dictionary<string, Course> courses;
-        private Dictionary<string, Student> students;
+        private readonly IDataFilter filter;
+        private readonly IDataSorter sorter;
+        private Dictionary<string, ICourse> courses;
+        private bool isDataInitialized;
+        private Dictionary<string, IStudent> students;
 
         private Dictionary<string, Dictionary<string, List<int>>> studentsByCourse;
 
-        public StudentsRepository(RepositorySorter sorter, RepositoryFilter filter)
+        public StudentsRepository(IDataSorter sorter, IDataFilter filter)
         {
             this.sorter = sorter;
             this.filter = filter;
@@ -33,9 +34,9 @@
             }
 
             OutputWriter.WriteMessageOnNewLine("Reading data...");
-            this.students = new Dictionary<string, Student>();
-            this.courses = new Dictionary<string, Course>();
-            this.ReadData(fileName);
+            this.students = new Dictionary<string, IStudent>();
+            this.courses = new Dictionary<string, ICourse>();
+            ReadData(fileName);
         }
 
         public void UnloadData()
@@ -49,6 +50,29 @@
             this.students = null;
             this.courses = null;
             this.isDataInitialized = false;
+        }
+
+        public void GetStudentScoresFromCouse(string courseName, string username)
+        {
+            if (IsQueryForStudentPossible(courseName, username))
+            {
+                OutputWriter.PrintStudent(
+                    new KeyValuePair<string, double>(username,
+                        this.courses[courseName].StudentsByName[username].MarksByCourseName[courseName]));
+            }
+        }
+
+        public void GetAllStudentFromCourse(string courseName)
+        {
+            if (IsQueryForCoursePossible(courseName))
+            {
+                OutputWriter.WriteMessageOnNewLine($"{courseName}");
+
+                foreach (var student in this.courses[courseName].StudentsByName)
+                {
+                    GetStudentScoresFromCouse(courseName, student.Key);
+                }
+            }
         }
 
         private void ReadData(string fileName)
@@ -72,7 +96,7 @@
                         string scoresStr = currenMatch.Groups[3].Value;
                         try
                         {
-                            int[] scores = scoresStr.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                            int[] scores = scoresStr.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries)
                                 .Select(int.Parse)
                                 .ToArray();
 
@@ -82,7 +106,7 @@
                                 continue;
                             }
 
-                            if (scores.Length > Course.NumberOfTasksOnExam)
+                            if (scores.Length > SoftUniCourse.NumberOfTasksOnExam)
                             {
                                 OutputWriter.DisplayException(ExceptionMessages.InvalidNumberOfScores);
                                 continue;
@@ -90,16 +114,16 @@
 
                             if (!this.students.ContainsKey(studentName))
                             {
-                                this.students.Add(studentName, new Student(studentName));
+                                this.students.Add(studentName, new SoftUniStudent(studentName));
                             }
 
                             if (!this.courses.ContainsKey(courseName))
                             {
-                                this.courses.Add(courseName, new Course(courseName));
+                                this.courses.Add(courseName, new SoftUniCourse(courseName));
                             }
 
-                            Course course = this.courses[courseName];
-                            Student student = this.students[studentName];
+                            ICourse course = this.courses[courseName];
+                            IStudent student = this.students[studentName];
 
                             student.EnrollInCourse(course);
                             student.SetMarksOnCourse(courseName, scores);
@@ -108,9 +132,8 @@
                         }
                         catch (Exception fx)
                         {
-                           OutputWriter.DisplayException(fx.Message + $"at line : {line}");
+                            OutputWriter.DisplayException(fx.Message + $"at line : {line}");
                         }
-
                     }
                 }
                 this.isDataInitialized = true;
@@ -130,10 +153,7 @@
                 {
                     return true;
                 }
-                else
-                {
-                    OutputWriter.DisplayException(ExceptionMessages.InexistingCourseInDataBase);
-                }
+                OutputWriter.DisplayException(ExceptionMessages.InexistingCourseInDataBase);
             }
             else
             {
@@ -146,43 +166,19 @@
 
         private bool IsQueryForStudentPossible(string courseName, string studentName)
         {
-            if (this.IsQueryForCoursePossible(courseName) && this.courses[courseName].StudentsByName.ContainsKey(studentName))
+            if (IsQueryForCoursePossible(courseName) &&
+                this.courses[courseName].StudentsByName.ContainsKey(studentName))
             {
                 return true;
             }
-            else
-            {
-                OutputWriter.DisplayException(ExceptionMessages.InexistingStudentInDataBase);
-            }
+            OutputWriter.DisplayException(ExceptionMessages.InexistingStudentInDataBase);
 
             return false;
         }
 
-        public void GetStudentScoresFromCouse(string courseName, string username)
-        {
-            if (this.IsQueryForStudentPossible(courseName, username))
-            {
-                OutputWriter.PrintStudent(
-                    new KeyValuePair<string, double>(username, this.courses[courseName].StudentsByName[username].MarksByCourseName[courseName]));
-            }
-        }
-
-        public void GetAllStudentFromCourse(string courseName)
-        {
-            if (this.IsQueryForCoursePossible(courseName))
-            {
-                OutputWriter.WriteMessageOnNewLine($"{courseName}");
-
-                foreach (var student in this.courses[courseName].StudentsByName)
-                {
-                    this.GetStudentScoresFromCouse(courseName, student.Key);
-                }
-            }
-        }
-
         public void FilterAndTake(string courseName, string givenFIlter, int? studentsToTake = null)
         {
-            if (this.IsQueryForCoursePossible(courseName))
+            if (IsQueryForCoursePossible(courseName))
             {
                 if (studentsToTake == null)
                 {
@@ -199,7 +195,7 @@
 
         public void OrderAndTake(string courseName, string comparison, int? studentsToTake = null)
         {
-            if (this.IsQueryForCoursePossible(courseName))
+            if (IsQueryForCoursePossible(courseName))
             {
                 if (studentsToTake == null)
                 {

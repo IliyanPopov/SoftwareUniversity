@@ -2,19 +2,20 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.IO;
     using System.Linq;
+    using Contracts;
+    using Contracts.Judge;
+    using Contracts.Repository;
     using Exceptions;
     using IO.Commands;
 
-    public class CommandInterpreter
+    public class CommandInterpreter : IInterpreter
     {
-        private IOManager inputOutputManager;
-        private Tester judge;
-        private StudentsRepository repository;
+        private readonly IDirecoryManager inputOutputManager;
+        private readonly IContentComparer judge;
+        private readonly IDatabase repository;
 
-        public CommandInterpreter(Tester judge, StudentsRepository repository, IOManager inputOutputManager)
+        public CommandInterpreter(IContentComparer judge, IDatabase repository, IDirecoryManager inputOutputManager)
         {
             this.judge = judge;
             this.repository = repository;
@@ -22,24 +23,23 @@
         }
 
 
-        public void InterpredCommand(string input)
+        public void InterpretCommand(string input)
         {
-            List<string> data = input.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            List<string> data = input.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries).ToList();
             string commandName = data[0].ToLower();
 
             try
             {
-                Command command = this.ParseCommand(input, commandName, data);
+                IExecutable command = ParseCommand(input, commandName, data);
                 command.Execute();
             }
             catch (Exception e)
             {
                 OutputWriter.DisplayException(e.Message);
             }
-
         }
 
-        private Command ParseCommand(string input, string command, List<string> data)
+        private IExecutable ParseCommand(string input, string command, List<string> data)
         {
             switch (command)
             {
@@ -54,20 +54,25 @@
                 case "cmp":
                     return new CompareFilesCommand(input, data, this.judge, this.repository, this.inputOutputManager);
                 case "cdrel":
-                    return new ChangePathRelativelyCommand(input, data, this.judge, this.repository, this.inputOutputManager);
+                    return new ChangePathRelativelyCommand(input, data, this.judge, this.repository,
+                        this.inputOutputManager);
                 case "cdabs":
-                    return new ChangePathAbsoluteCommand(input, data, this.judge, this.repository, this.inputOutputManager);
+                    return new ChangePathAbsoluteCommand(input, data, this.judge, this.repository,
+                        this.inputOutputManager);
                 case "readdb":
-                    return new ReadFromDataBaseCommand(input, data, this.judge, this.repository, this.inputOutputManager);
+                    return new ReadFromDataBaseCommand(input, data, this.judge, this.repository,
+                        this.inputOutputManager);
                 case "help":
                     return new GetHelpCommand(input, data, this.judge, this.repository, this.inputOutputManager);
                 case "filter":
-                    return new PrintFilteredStudentsCommand(input, data, this.judge, this.repository, this.inputOutputManager);
+                    return new PrintFilteredStudentsCommand(input, data, this.judge, this.repository,
+                        this.inputOutputManager);
                 case "order":
-                    return new PrintOrderedStudentsCommand(input, data, this.judge, this.repository, this.inputOutputManager);
+                    return new PrintOrderedStudentsCommand(input, data, this.judge, this.repository,
+                        this.inputOutputManager);
                 case "decorder":
                     //  TODO: implement after functionallity is completed
-                    throw new NotImplementedException();                
+                    throw new NotImplementedException();
                 case "download":
                     // TODO: implement after functionallity is completed
                     throw new NotImplementedException();

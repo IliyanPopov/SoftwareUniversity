@@ -1,10 +1,13 @@
 ﻿namespace BashSoft.IO.Commands
 {
     using System.Collections.Generic;
+    using Contracts;
+    using Contracts.Judge;
+    using Contracts.Repository;
 
-    public class ShowWantedDataCommand : Command
+    public class ShowWantedDataCommand : Command, IExecutable
     {
-        public ShowWantedDataCommand(string input, List<string> data, Tester judge, StudentsRepository repository, IOManager inputOutputManager) : base(input, data, judge, repository, inputOutputManager)
+        public ShowWantedDataCommand(string input, List<string> data, IContentComparer judge, IDatabase repository, IDirecoryManager inputOutputManager) : base(input, data, judge, repository, inputOutputManager)
         {
         }
 

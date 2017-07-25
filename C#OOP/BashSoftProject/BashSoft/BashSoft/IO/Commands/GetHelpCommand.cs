@@ -2,11 +2,14 @@
 {
     using System;
     using System.Collections.Generic;
+    using Contracts;
+    using Contracts.Judge;
+    using Contracts.Repository;
     using Exceptions;
 
-    public class GetHelpCommand : Command
+    public class GetHelpCommand : Command, IExecutable
     {
-        public GetHelpCommand(string input, List<string> data, Tester judge, StudentsRepository repository, IOManager inputOutputManager) : base(input, data, judge, repository, inputOutputManager)
+        public GetHelpCommand(string input, List<string> data, IContentComparer judge, IDatabase repository, IDirecoryManager inputOutputManager) : base(input, data, judge, repository, inputOutputManager)
         {
         }
 

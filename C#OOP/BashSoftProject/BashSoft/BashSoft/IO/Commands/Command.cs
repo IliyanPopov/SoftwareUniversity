@@ -2,20 +2,23 @@
 {
     using System;
     using System.Collections.Generic;
+    using Contracts;
+    using Contracts.Judge;
+    using Contracts.Repository;
     using Exceptions;
 
-    public abstract class Command
+    public abstract class Command : IExecutable
     {
         private List<string> _data;
         private string _input;
-        private readonly IOManager _inputOutputManager;
+        private readonly IDirecoryManager _inputOutputManager;
 
 
-        private readonly Tester _judge;
-        private readonly StudentsRepository _repository;
+        private readonly IContentComparer _judge;
+        private readonly IDatabase _repository;
 
-        protected Command(string input, List<string> data, Tester judge, StudentsRepository repository,
-            IOManager inputOutputManager)
+        protected Command(string input, List<string> data, IContentComparer judge, IDatabase repository,
+                IDirecoryManager inputOutputManager)
         //    :this()
         {
             this.Input = input;
@@ -28,7 +31,7 @@
         public string Input
         {
             get { return this._input; }
-          private  set
+            private set
             {
                 if (string.IsNullOrEmpty(value))
                 {
@@ -39,36 +42,26 @@
             }
         }
 
-        //public Command()
-        //{
-        //    this.Data = new List<string>();
-        //}
-
         public List<string> Data
         {
             get { return this._data; }
-           private set
+            private set
             {
-                //if (value == null || this.Data.Count == 0)
-                //{
-                //    throw new NullReferenceException();
-                //}
-
                 this._data = value;
             }
         }
 
-        protected Tester Judge
+        protected IContentComparer Judge
         {
             get { return this._judge; }
         }
 
-        protected StudentsRepository Repository
+        protected IDatabase Repository
         {
             get { return this._repository; }
         }
 
-        protected IOManager InputOutputManager
+        protected IDirecoryManager InputOutputManager
         {
             get { return this._inputOutputManager; }
         }
