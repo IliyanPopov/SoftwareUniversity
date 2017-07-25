@@ -1,6 +1,14 @@
 # C# - BashSoft Project
 <a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/BashSoftProject">BashSoft Project</a>
 
+# C# OOP Advanced Tasks
+<ol>
+<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/1InterfacesLab">Interfaces Lab</a></li>
+<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/2InterfacesExercises">Interfaces Exercise</a></li>
+<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/3GenericsLab">Generics Lab</a></li>
+<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/4GenericsExercises">Generics Exercises</a></li>
+</ol>
+
 # C# OOP Basics Tasks
 <ol>
 <li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Basics/1DefiningClassesLab">Defining Classes Lab</a></li>
