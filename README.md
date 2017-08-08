@@ -18,6 +18,9 @@ My Homeworks and projects for Software University
 <li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/6IteratorsAndComparatorsExercises">IteratorsAndComparators Exercise</a></li>
 <li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/7EnumerationsAndAttributesLab">EnumerationsAndAttributes Lab</a></li>
 <li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/8EnumerationsAndAttributesExercises">EnumerationsAndAttributes Exercise</a></li>
+<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/9ReflectionLab">Reflection Lab</a></li>
+<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/10ReflectionExercises>Reflection Exercise</a></li>
+<li><a href="https://github.com/IliyanPopov/SoftwareUniversity/tree/master/C%23OOP/C%23OOP-Advanced/11UnitTestsLab">Unit Tests Lab</a></li>
 </ol>
 
 ### C# OOP Basics
