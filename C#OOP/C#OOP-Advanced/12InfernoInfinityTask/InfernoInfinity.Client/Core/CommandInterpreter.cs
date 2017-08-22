@@ -11,11 +11,11 @@
     {
         private readonly WeaponFactory _weaponFactory;
         private readonly IWriter _writer;
-        private readonly InfernoInMemoryRepository repository;
+        private readonly InfernoInMemoryRepository _repository;
 
         public CommandInterpreter(InfernoInMemoryRepository repository, IWriter writer, WeaponFactory weaponFactory)
         {
-            this.repository = repository;
+            this._repository = repository;
             this._writer = writer;
             this.IsRunning = true;
             this._weaponFactory = weaponFactory;
@@ -44,13 +44,13 @@
             switch (command)
             {
                 case "Create":
-                    return new CreateCommand(data, this.repository, this._weaponFactory);
+                    return new CreateCommand(data, this._repository, this._weaponFactory);
                 case "Add":
-                    return new AddCommand(data, this.repository);
+                    return new AddCommand(data, this._repository);
                 case "Remove":
-                    return new RemoveCommand(data, this.repository);
+                    return new RemoveCommand(data, this._repository);
                 case "Print":
-                    return new PrintCommand(data, this._writer, this.repository);
+                    return new PrintCommand(data, this._writer, this._repository);
                 case "Author":
                     return new AuthorCommand(data, this._writer);
                 case "Description":
